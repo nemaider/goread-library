@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GORead library</title>
+    <link rel="stylesheet" href="/goread/styles.css">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+    crossorigin="anonymous"/>
+</head>
+<body>
+    
+    <!-- Navbar section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/goread/index.html" id="navbar__logo">GORead</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__btn">
+                    <a href="/goread/account/login.php" class="button" id="signup">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+
+    <!-- Hero Section -->
+
+    <div class="hero" id="home">
+        <div class="hero__container">
+            <h4 class="subpage__header">Support</h4><br>
+            <p class="subpage__description">If you have any problems just call to our support by <span style="color: blue">+48 600 700 800</span>.<br>We are online 24/7.</p>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Features section -->
+
+    <div class="main" id="sign-up">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>Join our society</h1>
+                <h2>Sign up today</h2>
+                <p>See what makes us different</p>
+                <button class="main__btn"><a href="/goread/account/login.php">Sign up</a></button>
+            </div>
+            <div class="main__img--container">
+                <div class="main__img--card" id="card-2"><i class="fas fa-users"></i></div>
+            </div>
+        </div>
+    </div>
+
+        <!-- footer section -->
+
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>About us</h2>
+                    <a href="/goread/aboutus/how-it-works.html">How it works</a>
+                    <a href="/goread/aboutus/careers.html">Careers</a>
+                    <a href="/goread/aboutus/ToS.html">Terms of service</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Contact us</h2>
+                    <a href="/goread/contactus/contact.html">Contact</a>
+                    <a href="/goread/contactus/support.html">Support</a>
+                </div>
+            </div>
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Books</h2>
+                    <a href="/goread/books/top5.html">Top 5 books</a>
+                    <a href="/goread/books/reviews.html">Reviews</a>
+                    <a href="/goread/books/upcoming-premieres.html">Upcoming premieres</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Social Media</h2>
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                    <a href="https://www.youtube.com/" target="_blank">Youtube</a>
+                    <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <section class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="/" class="footer__logo">GORead</a>
+                </div>
+                <p class="website__rights">&copy; GORead 2021. All right reserved</p>
+                <div class="social__icons">
+                    <a href="https://www.facebook.com/" class="social__icon--link" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/" class="social__icon--link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/" class="social__icon--link" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.twitter.com/" class="social__icon--link" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <script>
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.navbar__menu');
+const navLogo = document.querySelector('#navbar__logo');
+
+
+// display mobile menu
+const mobileMenu = () => {
+    menu.classList.toggle('is-active');
+    menuLinks.classList.toggle('active');
+}
+
+menu.addEventListener('click', mobileMenu); 
+    </script>
+</body>
+</html>
