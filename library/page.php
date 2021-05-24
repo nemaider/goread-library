@@ -1,10 +1,7 @@
 <?php
     session_start();
     
-    // if(isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-    //     echo $_SESSION['logged'];
-        
-    // }
+
 
    if(!isset($_SESSION['logged'])){
     header('Location: /../goread/account/login.php');
@@ -12,15 +9,7 @@
     exit();
  }
 
-//  if($_POST){
-//      $logout = $_POST['action'];
-//      if($logout=="logout"){
-//          unset($_SESSION['logged']);
-//          $_SESSION['login_error'] = '<span style="color:red">Zaloguj się do serwisu!</span>';
-//          header('Location: /../goread/account/login.php');
-//          exit();
-//      }
-//  }
+
 
  $path = $_SERVER['DOCUMENT_ROOT'];
    include($path.'/goread/phpmodules/connect.php');
@@ -165,23 +154,11 @@
         }
 
 
-        // $query = "SELECT * FROM books WHERE amount > 0";
 
         if($result = mysqli_query($conn, $query)){
             $exist = $result->num_rows;
       
             if($exist > 0){ // found min one record in db
-
-            //    $row = $result->fetch_assoc();
-
-            //    $row = mysqli_fetch_row($result)
-
-
-            //    $_SESSION['logged']=true;
-            //    $_SESSION['username']= $row['login'];
-            //    $_SESSION['permission'] = $row['permission'];
-
-
 
                 
 
@@ -205,13 +182,13 @@
                 if($_SESSION['permission']=="reader"){
 
                    while($row = $result->fetch_assoc()) {
-                    echo '<t><td class="db-subinfo">'.$row['id_book'].'</td><td class="db-subinfo">'.$row['author'].'</td><td class="db-subinfo">'.$row['title'].'</td><td class="db-subinfo">'.$row['category'].'</td><td class="db-subinfo">'.$row['price'].'</td><td class="db-subinfo">'.$row['amount'].'</td></tr>';
+                    echo '<tr><td class="db-subinfo">'.$row['id_book'].'</td><td class="db-subinfo">'.$row['author'].'</td><td class="db-subinfo">'.$row['title'].'</td><td class="db-subinfo">'.$row['category'].'</td><td class="db-subinfo">'.$row['price'].'</td><td class="db-subinfo">'.$row['amount'].'</td></tr>';
                   } 
                 } else {
                     while($row = $result->fetch_assoc()) {
-                        echo '<t><td class="db-subinfo">'.$row['id_book'].'</td><td class="db-subinfo">'.$row['author'].'</td><td class="db-subinfo">'.$row['title'].'</td><td class="db-subinfo">'.$row['category'].'</td><td class="db-subinfo">'.$row['price'].'</td><td class="db-subinfo">'.$row['amount'].'</td><td>'
-                        .'<a href="edycja.php?nazwa='.$row['id_book'].'&haslo='.$row['id_book'].'&uprawnienia='.$row['id_book'].'">Modify</a></td><td>'
-                        .'<a href="usun.php?nazwa='.$row['id_book'].'">Delete</a></td></tr>';
+                        echo '<tr><td class="db-subinfo">'.$row['id_book'].'</td><td class="db-subinfo">'.$row['author'].'</td><td class="db-subinfo">'.$row['title'].'</td><td class="db-subinfo">'.$row['category'].'</td><td class="db-subinfo">'.$row['price'].'</td><td class="db-subinfo">'.$row['amount'].'</td><td>'
+                        .'<a href="/goread/library/edit-page.php?id_book='.$row['id_book'].'&author='.$row['author'].'&title='.$row['title'].'&category='.$row['category'].'&price='.$row['price'].'&amount='.$row['amount'].'">Modify</a></td><td>'
+                        .'<a href="/goread/library/delete.php?id_book='.$row['id_book'].'">Delete</a></td></tr>';
                     } 
                 }
       

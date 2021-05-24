@@ -1,10 +1,7 @@
 <?php
     session_start();
     
-    // if(isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-    //     echo $_SESSION['logged'];
-        
-    // }
+
 
    if(!isset($_SESSION['logged'])){
     header('Location: /../goread/account/login.php');
@@ -12,15 +9,7 @@
     exit();
  }
 
-//  if($_POST){
-//      $logout = $_POST['action'];
-//      if($logout=="logout"){
-//          unset($_SESSION['logged']);
-//          $_SESSION['login_error'] = '<span style="color:red">Zaloguj się do serwisu!</span>';
-//          header('Location: /../goread/account/login.php');
-//          exit();
-//      }
-//  }
+
 
  $path = $_SERVER['DOCUMENT_ROOT'];
    include($path.'/goread/phpmodules/connect.php');
@@ -119,15 +108,7 @@
       
             if($exist > 0){ // found min one record in db
 
-            //    $row = $result->fetch_assoc();
-
-            //    $row = mysqli_fetch_row($result)
-
-
-            //    $_SESSION['logged']=true;
-            //    $_SESSION['username']= $row['login'];
-            //    $_SESSION['permission'] = $row['permission'];
-                
+         
 
                echo '<br><table cellpadding=5 border=1>
                <tr class="db-info">
@@ -139,9 +120,7 @@
                <td><b>Amount</b></td>
                <td><b>Options</b></td>';
 
-               if($_SESSION['permission']=="admin") {
-                   echo '<td><b>Options</b></td>';
-               }
+            
 
                echo '</tr><br>';
 
@@ -153,6 +132,12 @@
                     .'<a href="/goread/library/borrow.php?book='.$row['id_book'].'&price='.$row['price']*0.2.'&username='.$_SESSION['username'].'">Borrow</a>
                     </td></tr>';
                   } 
+                }  else {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<tr><td class="db-subinfo">'.$row['id_book'].'</td><td class="db-subinfo">'.$row['author'].'</td><td class="db-subinfo">'.$row['title'].'</td><td class="db-subinfo">'.$row['category'].'</td><td class="db-subinfo">'.$row['price'].'</td><td class="db-subinfo">'.$row['amount'].'</td><td>'
+                        .'<a href="/goread/library/edit-page.php?id_book='.$row['id_book'].'&author='.$row['author'].'&title='.$row['title'].'&category='.$row['category'].'&price='.$row['price'].'&amount='.$row['amount'].'">Modify</a></td><td>'
+                        .'<a href="/goread/library/delete.php?id_book='.$row['id_book'].'">Delete</a></td></tr>';
+                    } 
                 }  
       
 

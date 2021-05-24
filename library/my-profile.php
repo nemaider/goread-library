@@ -1,10 +1,6 @@
 <?php
     session_start();
     
-    // if(isset($_SESSION['logged']) && $_SESSION['logged']==true) {
-    //     echo $_SESSION['logged'];
-        
-    // }
 
    if(!isset($_SESSION['logged'])){
     header('Location: /../goread/account/login.php');
@@ -12,15 +8,7 @@
     exit();
  }
 
-//  if($_POST){
-//      $logout = $_POST['action'];
-//      if($logout=="logout"){
-//          unset($_SESSION['logged']);
-//          $_SESSION['login_error'] = '<span style="color:red">Zaloguj się do serwisu!</span>';
-//          header('Location: /../goread/account/login.php');
-//          exit();
-//      }
-//  }
+
 
  $path = $_SERVER['DOCUMENT_ROOT'];
    include($path.'/goread/phpmodules/connect.php');
@@ -122,15 +110,7 @@
             if($exist > 0){ // found min one record in db
             
                 $result2 = mysqli_query($conn, $query2);
-            //    $row = $result->fetch_assoc();
-
-            //    $row = mysqli_fetch_row($result)
-
-
-            //    $_SESSION['logged']=true;
-            //    $_SESSION['username']= $row['login'];
-            //    $_SESSION['permission'] = $row['permission'];
-                
+          
 
                echo '<br><table cellpadding=5 border=1>
                <tr class="db-info">
@@ -188,15 +168,7 @@
             if($exist > 0){ // found min one record in db
             
                 $result2 = mysqli_query($conn, $query2);
-            //    $row = $result->fetch_assoc();
-
-            //    $row = mysqli_fetch_row($result)
-
-
-            //    $_SESSION['logged']=true;
-            //    $_SESSION['username']= $row['login'];
-            //    $_SESSION['permission'] = $row['permission'];
-                
+    
 
                echo '<br><table cellpadding=5 border=1>
                <tr class="db-info">
